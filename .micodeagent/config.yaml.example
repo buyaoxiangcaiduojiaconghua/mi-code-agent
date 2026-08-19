@@ -1,0 +1,32 @@
+# MiCodeAgent 配置文件示例
+#
+# 使用方式：复制本文件为 config.yaml 并填入真实的 API Key
+#   cp .micodeagent/config.yaml.example .micodeagent/config.yaml
+#
+# 注意：config.yaml 包含真实密钥，已被 .gitignore 忽略，请勿提交到仓库。
+#
+# 字段说明：
+#   name      供应商标识名（状态栏左侧显示，方便区分多个配置）
+#   protocol  协议类型，支持 anthropic / openai
+#   model     模型名（状态栏右侧显示）
+#   base_url  自定义端点地址（可选，省略则用 SDK 默认端点）
+#   api_key   认证密钥
+#   thinking  是否启用扩展思考（可选，仅 anthropic 生效）
+#   context_window 上下文窗口 token 数（可选；未配置时按 protocol 默认，
+#                 anthropic 200000、openai 128000）
+
+providers:
+  # Anthropic Claude 示例（含扩展思考）
+  - name: "claude"
+    protocol: "anthropic"
+    model: "claude-sonnet-4-5"
+    api_key: "sk-ant-your-key-here"
+    thinking: true
+    context_window: 200000
+
+  # OpenAI 兼容端点示例（取消注释即可使用）
+  # - name: "deepseek-chat"
+  #   protocol: "openai"
+  #   model: "deepseek-chat"
+  #   base_url: "https://api.deepseek.com"
+  #   api_key: "sk-your-key-here"

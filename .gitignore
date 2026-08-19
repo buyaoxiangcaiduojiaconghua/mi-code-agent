@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+
+# 虚拟环境
+.venv/
+venv/
+
+# 配置文件（含 API Key）
+config.yaml
+*.local.yaml
+.micodeagent/sessions/
+.micodeagent/worktrees/
+.micodeagent/worktree_session.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Claude Code 本地配置
+.claude/settings.local.json
+
+# pytest
+.pytest_cache/
+.ruff_cache/

@@ -1,0 +1,30 @@
+# MiCodeAgent 权限配置示例
+#
+# 三层文件（优先级 本地 > 项目 > 用户）：
+#   用户级 ~/.micodeagent/settings.yaml
+#   项目级 <root>/.micodeagent/settings.yaml
+#   本地级 <root>/.micodeagent/settings.local.yaml（gitignore，含个人放行）
+#
+# 规则格式：工具友好名(模式)，例如 Bash(git *) 表示放行所有 git 命令。
+# 友好名：Bash / Read / Write / Edit / Glob / Grep
+# 结果：allow（放行）/ deny（拦截）
+#
+# 说明：
+#   只读类（Read/Glob/Grep）默认即 Allow，allow 规则主要用于提前放行 Bash/Write；
+#   deny 规则可对只读做围栏（如 Read(.env) 禁止读取环境变量文件）。
+
+default_mode: default
+
+permissions:
+  allow:
+    - "Bash(git *)"
+    - "Bash(pytest)"
+    - "Bash(ls)"
+    - "Bash(cat *)"
+
+  deny:
+    - "Bash(rm *)"
+    - "Read(.env)"
+    - "Write(.env)"
+    - "Read(.git/config)"
+    - "Write(.git/config)"
