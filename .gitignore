@@ -16,6 +16,7 @@ config.yaml
 .micodeagent/sessions/
 .micodeagent/worktrees/
 .micodeagent/worktree_session.json
+.micodeagent/sync.log
 
 # IDE
 .vscode/
